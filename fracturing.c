@@ -22,15 +22,17 @@
 double x1, x2;
 double yVal1, yVal2;
 
+double noRepeat = 0;
 
 // Calculates distance between x and y points.
 double calculateDistance()
 {
     double distance = sqrt(pow(x2-x1, 2) + pow(yVal2-yVal1, 2));
-    printf("\nPoint #1 entered: x1 = %.3f, y1 = %.3f", x1, yVal1);
-    printf("\nPoint #2 entered: x2 = %.3f, y2 = %.3f", x2, yVal2);
+    if (noRepeat == 0) 
+    {
         printf("\nThe distance between the two points is %.3f", distance);
-
+        noRepeat = 1;
+    }
     return distance;
 }
 
@@ -74,7 +76,11 @@ int main(int argc, char**argv)
     scanf("%lf %lf", &x1, &x2);
     printf("\nEnter y1, y2:");
     scanf("%lf %lf", &yVal1, &yVal2);
+
+    printf("\nPoint #1 entered: x1 = %.3f, y1 = %.3f", x1, yVal1);
+    printf("\nPoint #2 entered: x2 = %.3f, y2 = %.3f", x2, yVal2);
     
+
     calculateDistance();
     calculatePerimeter();
     calculateArea();
